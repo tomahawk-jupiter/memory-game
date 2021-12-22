@@ -1,23 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import data from './data.js';
+import shuffle from './shuffle';
+import './style.css';
 
-function App() {
+const App = () => {
+  const [dataArray, setDataArray] = useState(data);
+  const [currScore, setCurrScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [selected, setSelected] = useState([]);
+  const [message, setMessage] = useState('When you play the Game of thrones, you win or you die...');
+
+  const playRound = (e) => {
+    const person = e.target.id;
+
+    if (selected.includes(person)) {
+      setCurrScore(0);
+      setSelected([]);
+    } else {      
+      setCurrScore(currScore + 1);
+      setSelected(selected.concat(person));
+    }
+  }
+
+  useEffect(() => { 
+    setDataArray(shuffle(data));
+    if (currScore === 16) {
+      setMessage('You won the Game of Thrones!')
+    } else if (currScore > bestScore) {
+      setBestScore(currScore);
+    }
+  }, [currScore]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{message}</h1>
+      <div className="info">Click on every picture without repeating to win.</div>
+      <div className="game-container">
+        <div className="score">
+          <h2>Score</h2>
+          <h3>{currScore}</h3>
+        </div>
+        <div className="card-container">
+          {dataArray.map((each) => {
+          return(
+            <div className="card" key={each.key}>
+              <img id={each.key} src={each.img} onClick={playRound}></img>
+              <div className="name">{each.name}</div>
+            </div>
+          )
+        })}
+        </div>
+        <div className="score">
+          <h2>Best Score</h2>
+          <h3>{bestScore}</h3>
+        </div>
+      </div>  
     </div>
   );
 }

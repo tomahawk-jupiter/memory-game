@@ -1,0 +1,62 @@
+
+body {
+  background-color: #0d2711;
+  /* color: rgb(27, 156, 77); */
+  color: burlywood;
+  font-weight: 200px;
+}
+
+#root {
+  --main-size: 700px;
+  font-family: sans-serif;
+  padding: 0 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.info {
+  text-align: center;
+}
+
+.game-container {
+  display: flex;
+  /* margin-top: 30px; */
+  margin: 30px 60px;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-container {
+  width: var(--main-size);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card {
+  width: calc(var(--main-size) / 5);
+  margin-bottom: 10px;
+}
+
+img {
+  border-radius: 50%;
+  border: solid #363535;
+}
+
+.name {
+  color: blanchedalmond;
+  text-align: center;
+}
