@@ -27,3 +27,13 @@ A useEffect hook is used in the main App component to shuffle the Cards (the dat
 This command will create a new branch for the build folder that can then be hosted on github pages:
 
     $ git subtree push --prefix build origin gh-pages
+    
+The homepage must be set in the package.json:
+
+    "homepage": "https://tomahawk-jupiter.github.io/memory-game/"
+
+Or to open index.html locally in browser set to:
+
+    "homepage": "./"
+
+NOTE - this must be in the package.json before running build.
