@@ -2,6 +2,8 @@
 
 Game of thrones themed memory game made using React. Odin Project assignment.
 
+[Live Demo](https://tomahawk-jupiter.github.io/memory-game/)
+
 ## React Hooks
 
 There are examples of the useState and useEffect React hooks in App.js.
