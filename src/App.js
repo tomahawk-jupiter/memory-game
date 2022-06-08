@@ -13,9 +13,7 @@ const App = () => {
     "When you play the Game of thrones, you win or you die..."
   );
 
-  const playRound = (e) => {
-    const person = e.target.id;
-
+  const playRound = (person) => {
     if (selected.includes(person)) {
       setCurrScore(0);
       setSelected([]);

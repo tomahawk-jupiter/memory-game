@@ -1,9 +1,9 @@
 import React from "react";
 
-const Card = ({ key, img, name, playRound }) => {
+const Card = ({ id, img, name, playRound }) => {
   return (
-    <div className="card" key={key}>
-      <img id={key} src={img} onClick={playRound} alt={name}></img>
+    <div className="card">
+      <img id={id} src={img} onClick={() => playRound(id)} alt={name} />
       <div className="name">{name}</div>
     </div>
   );
